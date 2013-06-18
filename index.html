@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSbitwiseDemo</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>bitwise and compare info</h1>
+  <p>this are only a few bitwise examples</p>
+  <h2>operator</h2>
+  <div class="bitwise"><input type="text"> <span data-bit="<<">&lt;&lt;</span> <input type="text"> = <input id="shiftleft" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit="<<=">&lt;&lt;=</span> <input type="text"> = <input id="shiftleftassign" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit=">>">&gt;&gt;</span> <input type="text"> = <input id="shiftright" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit=">>=">&gt;&gt;=</span> <input type="text"> = <input id="shiftrightassign" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit=">>>">&gt;&gt;&gt;</span> <input type="text"> = <input id="shiftrightzerofill" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit=">>>=">&gt;&gt;&gt;=</span> <input type="text"> = <input id="shiftrightzerofillassign" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit="&">&#38;</span> <input type="text"> = <input id="and" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit="&=">&#38;=</span> <input type="text"> = <input id="andassign" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit="|">&#124;</span> <input type="text"> = <input id="or" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit="^">&#710;</span> <input type="text"> = <input id="exclusiveor" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit="|=">&#124;=</span> <input type="text"> = <input id="orassign" readonly="readonly" type="text"><br/></div>
+  <h2>compare</h2>
+  <div class="bitwise"><input type="text"> <span data-bit="<=">&lt;=</span> <input type="text"> = <input id="lessorequal" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit=">=">&gt;=</span> <input type="text"> = <input id="moreorequal" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit="==">==</span> <input type="text"> = <input id="equal" readonly="readonly" type="text"><br/></div>
+  <div class="bitwise"><input type="text"> <span data-bit="===">===</span> <input type="text"> = <input id="strictequal" readonly="readonly" type="text"><br/></div>
+  <script>
+    window.onload = function () {
+      var i, inputeles = document.getElementsByTagName('input');
+      for (i = 0; i < inputeles.length; i++) {
+        if (inputeles[i].getAttribute('readonly') !== 'readonly') {
+          inputeles[i].onkeyup = function () {
+            if ((this.parentNode.getElementsByTagName('input')[0] !== '') && (this.parentNode.getElementsByTagName('input')[0] !== '')) {
+              window.setTimeout('document.getElementById("' + this.parentNode.getElementsByTagName('input')[2].id + '").value = ' + parseInt(this.parentNode.getElementsByTagName('input')[0].value, 10) + ' ' + this.parentNode.getElementsByTagName('span')[0].getAttribute('data-bit') + ' ' + parseInt(this.parentNode.getElementsByTagName('input')[1].value, 10));
+            }
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
